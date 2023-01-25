@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.css">
+  <title>My Contacts</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="center-align">
+      My Contacts
+    </h1>
+    <input type="text" id="filterInput" placeholder="Search names...">
+    <ul id="names" class="collection with-header">
+      <li class="collection-header">
+        <h5>F</h5>
+      </li>
+      <li class="collection-item">
+        <a href="#">Fahrul</a>
+      </li>
+      <li class="collection-item">
+        <a href="#">Fa</a>
+      </li>
+      <li class="collection-item">
+        <a href="#">Fahru</a>
+      </li>
+      <li class="collection-header">
+        <h5>M</h5>
+      </li>
+      <li class="collection-item">
+        <a href="#">Muhammad</a>
+      </li>
+      <li class="collection-item">
+        <a href="#">Mita</a>
+      </li>
+      <li class="collection-item">
+        <a href="#">Muna</a>
+      </li>
+      <li class="collection-header">
+        <h5>N</h5>
+      </li>
+      <li class="collection-item">
+        <a href="#">Njul</a>
+      </li>
+      <li class="collection-item">
+        <a href="#">Nina</a>
+      </li>
+      <li class="collection-item">
+        <a href="#">Nita</a>
+      </li>
+    </ul>
+  </div>1
+
+  <script>
+    // Get input element
+    const inputEl = document.querySelector('#filterInput');
+
+    // Filter Name Function
+    const filterName = () => {
+      const ul = document.querySelector('#names')
+      const li = ul.querySelectorAll('.collection-item');
+
+      const filterValue = inputEl.value.toUpperCase();
+
+      li.forEach((item) => {
+        const a = item.querySelector('a');
+        if (a.innerHTML.toUpperCase().indexOf(filterValue) > -1) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      })
+    }
+    inputEl.addEventListener('keyup', filterName);
+  </script>
+</body>
+
+</html>
